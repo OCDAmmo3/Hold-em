@@ -1,11 +1,13 @@
 import React from 'react';
+import Header from './components/header';
+import DeckStack from './components/deck-stack';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      </header>
-    </div>
+    <>
+      <Header/>
+      <DeckStack/>
+    </>
   );
 }
 
