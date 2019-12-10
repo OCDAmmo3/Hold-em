@@ -35,6 +35,6 @@ export default class Deck {
   }
 
   getCard = () => {
-    return this.cards[Math.ceil(((Math.ceil(Math.random() * 52)) + Math.ceil(Math.random() * 52)) / 2) - 1];
+    return this.cards[Math.ceil(((Math.ceil(Math.random() * this.cards.length)) + Math.ceil(Math.random() * this.cards.length)) / 2) - 1];
   }
 }
