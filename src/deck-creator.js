@@ -5,6 +5,13 @@ export default class Deck {
     this.cards = [...cards];
   }
 
+  cardRemove = (card) => {
+    let index = this.cards.indexOf(card);
+    if(index > -1) {
+      this.cards.splice(index, 1);
+    }
+  }
+
   dealHand = () => {
     let player1Hand = [];
     let player2Hand = [];
