@@ -1,42 +1,40 @@
-let randomCard = Math.ceil((Math.ceil(Math.random() * 52)) * Math.ceil(Math.random() * 52) / 2);
-
 export default class Deck {
   constructor(cards) {
     this.cards = [...cards];
+  }
+
+  cardRemove = (card) => {
+    let index = this.cards.indexOf(card);
+    if(index > -1) {
+      this.cards.splice(index, 1);
+    }
   }
 
   dealHand = () => {
     let player1Hand = [];
     let player2Hand = [];
     let player3Hand = [];
-    player1Hand.push(this.getCard());
-    player2Hand.push(this.getCard());
-    player3Hand.push(this.getCard());
     let card = this.getCard();
-    while(player1Hand.length < 2) {
-      if(player1Hand.includes(card) || player2Hand.includes(card) || player3Hand.includes(card)) {
-        card = this.getCard();
-      } else {
-        player1Hand.push(card);
-      }
+    for(let i = 1; i < 3; i++) {
+    player1Hand.push(card);
+    this.cardRemove(card);
+    card = this.getCard();
+    player2Hand.push(card);
+    this.cardRemove(card);
+    card = this.getCard();
+    player3Hand.push(card);
+    this.cardRemove(card);
+    card = this.getCard();
     }
-    while(player2Hand.length < 2) {
-      if(player1Hand.includes(card) || player2Hand.includes(card) || player3Hand.includes(card)) {
-        card = this.getCard();
-      } else {
-        player2Hand.push(card);
-      }
+    let hands = {
+      player1Hand,
+      player2Hand,
+      player3Hand
     }
-    while(player3Hand.length < 2) {
-      if(player1Hand.includes(card) || player2Hand.includes(card) || player3Hand.includes(card)) {
-        card = this.getCard();
-      } else {
-        player3Hand.push(card);
-      }
-    }
+    return hands;
   }
 
   getCard = () => {
-    return this.cards[randomCard];
+    return this.cards[Math.ceil(((Math.ceil(Math.random() * 52)) + Math.ceil(Math.random() * 52)) / 2) - 1];
   }
 }
