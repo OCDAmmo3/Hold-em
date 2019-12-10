@@ -1,4 +1,17 @@
 body {
+  #root {
+    .hand {
+      ul {
+        li {
+          .card-image {
+            width: 140px;
+          }
+          display: inline-block;
+        }
+        list-style: none;
+      }
+    }
+  }
   background: url('../images/poker-green.jpeg') no-repeat center center fixed;
   background-size: cover;
   color: rgb(220, 220, 220);
