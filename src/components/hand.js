@@ -1,6 +1,9 @@
 import React from 'react';
 import Deck from '../deck-creator';
 import { fullDeckStack } from '../full-deck';
+import PlayerOne from './player-hands/player1';
+import PlayerTwo from './player-hands/player2';
+import PlayerThree from './player-hands/player3';
 
 export function Hand(props) {
   let deck = new Deck(fullDeckStack);
@@ -11,64 +14,13 @@ export function Hand(props) {
     player3: dealtHand.player3Hand,
   }
   return (
-    <>
-      <div className="player-1 hand">
-        <ul>
-          {
-            dealtHand.player1Hand.map(card => {
-              try {
-                return (
-                  <li key={card.id}>
-                    <img src={card.image} alt={card.name} className={`${card.id} card-image`}/>
-                  </li>
-                )
-              } catch(error) {
-                return (
-                  <h1 key="error">Error</h1>
-                )
-              }
-            })
-          } 
-        </ul> 
-      </div>
-      <div className="player-2 hand">
-        <ul>
-          {
-            dealtHand.player2Hand.map(card => {
-              try {
-                return (
-                  <li key={card.id}>
-                    <img src={card.image} alt={card.name} className={`${card.id} card-image`}/>
-                  </li>
-                )
-              } catch(error) {
-                return (
-                  <h1 key="error">Error</h1>
-                )
-              }
-            })
-          } 
-        </ul> 
-      </div>
-      <div className="player-3 hand">
-        <ul>
-          {
-            dealtHand.player3Hand.map(card => {
-              try {
-                return (
-                  <li key={card.id}>
-                    <img src={card.image} alt={card.name} className={`${card.id} card-image`}/>
-                  </li>
-                )
-              } catch(error) {
-                return (
-                  <h1 key="error">Error</h1>
-                )
-              }
-            })
-          } 
-        </ul> 
-      </div>
-    </>
+    <main>
+      <Route exact path='/player-one' component={PlayerOne} />
+      <Route exact path='/player-two' component={PlayerTwo} />
+      <Route exact path='/player-three' component={PlayerThree} />
+      <Route render={
+        () => <h1>Not Found</h1>
+      } />
+    </main>
   )
 }
