@@ -16,15 +16,15 @@ export default class Deck {
     let player3Hand = [];
     let card = this.getCard();
     for(let i = 1; i < 3; i++) {
-    player1Hand.push(card);
-    this.cardRemove(card);
-    card = this.getCard();
-    player2Hand.push(card);
-    this.cardRemove(card);
-    card = this.getCard();
-    player3Hand.push(card);
-    this.cardRemove(card);
-    card = this.getCard();
+      player1Hand.push(card);
+      this.cardRemove(card);
+      card = this.getCard();
+      player2Hand.push(card);
+      this.cardRemove(card);
+      card = this.getCard();
+      player3Hand.push(card);
+      this.cardRemove(card);
+      card = this.getCard();
     }
     let hands = {
       player1Hand,
