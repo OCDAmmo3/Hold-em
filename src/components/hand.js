@@ -1,6 +1,9 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
+
 import Deck from '../deck-creator';
 import { fullDeckStack } from '../full-deck';
+import Home from './home';
 import PlayerOne from './player-hands/player1';
 import PlayerTwo from './player-hands/player2';
 import PlayerThree from './player-hands/player3';
@@ -15,12 +18,22 @@ export function Hand(props) {
   }
   return (
     <main>
-      <Route exact path='/player-one' component={PlayerOne} />
-      <Route exact path='/player-two' component={PlayerTwo} />
-      <Route exact path='/player-three' component={PlayerThree} />
-      <Route render={
-        () => <h1>Not Found</h1>
-      } />
+      <Route exact
+        path='/'
+        component={Home}
+      />
+      <Route exact
+        path='/player-one'
+        render={(props) => <PlayerOne {...props} hand={playerHands.player1} />}
+      />
+      <Route exact
+        path='/player-two'
+        render={(props) => <PlayerTwo {...props} hand={playerHands.player2} />}
+      />
+      <Route exact
+        path='/player-three'
+        render={(props) => <PlayerThree {...props} hand={playerHands.player3} />}
+      />
     </main>
   )
 }
