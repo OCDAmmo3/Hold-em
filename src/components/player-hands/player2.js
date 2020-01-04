@@ -17,7 +17,7 @@ export default function Player2(props) {
           }
         </ul>
       </div>
-      <h4><Link to='/player-three'>Next Player</Link></h4>
+      <h4><Link to='/player-three' className='next-button'>Next Player</Link></h4>
     </>
   )
 }
