@@ -5,8 +5,8 @@ export default function Home() {
   return (
     <>
       <nav>
-        <ul>
-          <li> <Link to='/player-one'>Deal Hand</Link></li>
+        <ul className='navigation'>
+          <li> <Link to='/player-one' className='next-button'>Deal Hand</Link></li>
         </ul>
       </nav>
     </>
